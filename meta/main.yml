@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Joshua Cherry
+  description: |
+              Ansible playbook to setup and configure apt-mirror (Local APT Repository).
+              Also configures clients.
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags:
+    - system
+dependencies: []

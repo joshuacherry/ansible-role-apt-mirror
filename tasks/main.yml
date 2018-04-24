@@ -1,0 +1,27 @@
+---
+- name: debian | installing packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: 'yes'
+  with_items:
+    - apt-mirror
+  when: >
+        ansible_os_family == 'Debian' and
+        apt_mirror_server
+
+- include_tasks: config-apt-mirror.yml
+  when: >
+        ansible_os_family == 'Debian' and
+        apt_mirror_server
+
+- include_tasks: config-apt-mirror-client.yml
+  when: >
+        ansible_os_family == 'Debian' and
+        apt_mirror_client
+
+- include_tasks: config-apt-mirror-schedule.yml
+  when: >
+        ansible_os_family == 'Debian' and
+        apt_mirror_server and
+        apt_mirror_schedule_updates

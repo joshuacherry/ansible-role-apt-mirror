@@ -1,0 +1,22 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-role-apt-mirror
+  vars:
+    apt_mirror_client: true
+    apt_mirror_server: true
+    apt_mirror_ubuntu_mirror: archive.ubuntu.com/ubuntu
+    apt_mirror_client_repos:
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
+    apt_mirror_schedule:
+      - name: apt-mirror updates
+        special_time: daily
+        job: /usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log
+        cron_file: apt-mirror
+    enable_apt_mirror: true

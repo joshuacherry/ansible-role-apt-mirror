@@ -1,0 +1,62 @@
+---
+# Defines if running this role against a client.
+apt_mirror_client: true
+
+# Defines if running apt-mirror server role.
+apt_mirror_server: false
+
+apt_mirror_client_repos: []
+#   - "deb http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }} main restricted universe multiverse"
+#   - "deb http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-backports main restricted universe multiverse"
+#   - "deb http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-security main restricted universe multiverse"
+#   - "deb http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-updates main restricted universe multiverse"
+#   - "deb-src http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }} main restricted universe multiverse"
+#   - "deb-src http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-backports main restricted universe multiverse"
+#   - "deb-src http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-security main restricted universe multiverse"
+#   - "deb-src http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-updates main restricted universe multiverse"
+# #  - "deb http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-proposed main restricted universe multiverse"
+# #  - "deb-src http://{{ apt_mirror_server }}/ubuntu {{ ansible_distribution_release|lower }}-proposed main restricted universe multiverse"
+
+# Define ubuntu mirror to use for ubuntu repos
+apt_mirror_ubuntu_mirror: archive.ubuntu.com/ubuntu
+
+# Define list of repos to add
+apt_mirror_repos:
+  - "deb-amd64 http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
+  - "deb-amd64 http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
+  - "deb-amd64 http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
+  - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
+  - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
+  - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
+
+apt_mirror_schedule: []
+#   - name: apt-mirror updates
+#     # Defines schedule - hourly, daily, weekly, monthly, annually,
+#     # yearly or reboot..comment out if setting specific times
+#     special_time: daily
+# #    minute: 0
+# #    hour: *
+# #    day: *
+# #    month: *
+# #    weekday: *
+#     job: /usr/bin/apt-mirror > /var/spool/apt-mirror/var/cron.log
+#     cron_file: apt-mirror
+
+# Defines if repos should be updates on a schedule.
+apt_mirror_schedule_updates: true
+
+# Defines if apt_mirror is being used
+# false will reset mirror list
+enable_apt_mirror: false
+
+# Define directory to use as repo
+apt_mirror_dir: /var/spool/apt-mirror
+
+# Defines the number of threads
+apt_mirror_nthreads: 10
+
+# Defines download rate limit in KiloBytes/thread (1Mb=125Kb)
+apt_mirror_limit_rate: 125
+
+# Defines if you would like to enable bandwidth limits
+enable_apt_mirror_limit_rate: false
