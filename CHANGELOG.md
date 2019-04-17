@@ -28,4 +28,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated Tox to test multiple operating systems and ansible versions
 
 [Unreleased]: https://github.com/joshuacherry/ansible-role-apt-mirror/compare/1.0.0...HEAD
-[1.0.1]: https://github.com/joshuacherry/example-ansible-role/compare/1.0.0...1.0.1
+[1.0.1]: https://github.com/joshuacherry/ansible-role-apt-mirror/compare/1.0.0...1.0.1
