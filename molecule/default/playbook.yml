@@ -8,12 +8,12 @@
     apt_mirror_server: true
     apt_mirror_ubuntu_mirror: archive.ubuntu.com/ubuntu
     apt_mirror_client_repos:
-      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
-      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
-      - "deb http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
-      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial main restricted universe multiverse"
-      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-security main restricted universe multiverse"
-      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} xenial-updates main restricted universe multiverse"
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }} main restricted universe multiverse"
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }}-security main restricted universe multiverse"
+      - "deb http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }}-updates main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }} main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }}-security main restricted universe multiverse"
+      - "deb-src http://{{ apt_mirror_ubuntu_mirror }} {{ ansible_distribution_release }}-updates main restricted universe multiverse"
     apt_mirror_schedule:
       - name: apt-mirror updates
         special_time: daily

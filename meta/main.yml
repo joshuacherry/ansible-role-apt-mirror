@@ -5,11 +5,12 @@ galaxy_info:
               Ansible playbook to setup and configure apt-mirror (Local APT Repository).
               Also configures clients.
   license: MIT
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
     - name: Ubuntu
       versions:
         - xenial
+        - bionic
   galaxy_tags:
     - system
 dependencies: []
